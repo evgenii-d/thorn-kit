@@ -2,7 +2,7 @@
 
 Pure CSS UI kit for quick prototyping.
 <br>
-[Examples](https://evgenii-d.github.io/thorn-kit/)
+<a href="https://evgenii-d.github.io/thorn-kit/" target="_blank">Examples</a>
 
 ## Usage
 Just add [thorn-kit.css](https://github.com/evgenii-d/thorn-kit/blob/main/css/thorn-kit.css) to your page and you are good to go
