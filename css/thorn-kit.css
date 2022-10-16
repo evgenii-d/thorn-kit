@@ -1,0 +1,415 @@
+:root {
+    /* Colors in RGB format only */
+    /* Basic UI kit for prototyping */
+    --thorn-base-color: 0, 0, 0;
+    --thorn-text-color: 0, 0, 0;
+    --thorn-ui-back-color: 255, 255, 255;
+    --thorn-ui-text-color: 255, 255, 255;
+    --thorn-scrollbar-track: 240, 240, 240;
+    --thorn-scrollbar-thumb: 205, 205, 205;
+}
+
+[is*='thorn'] {
+    color: rgb(var(--thorn-text-color));
+}
+
+[is*='thorn']:focus {
+    outline: none;
+}
+
+[is*='thorn']:disabled {
+    opacity: .6;
+    pointer-events: none;
+}
+
+/* SCROLLBAR */
+/* firefox */
+.thorn-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(var(--thorn-scrollbar-thumb)) rgb(var(--thorn-scrollbar-track));
+}
+
+/* webkit */
+.thorn-scrollbar::-webkit-scrollbar {
+    min-width: 8px;
+    width: .5rem;
+}
+
+.thorn-scrollbar::-webkit-scrollbar-track {
+    background: rgb(var(--thorn-scrollbar-track));
+}
+
+.thorn-scrollbar::-webkit-scrollbar-thumb {
+    background-color: rgb(var(--thorn-scrollbar-thumb));
+}
+
+/* BUTTON */
+input[is='thorn-button'],
+button[is='thorn-button'] {
+    position: relative;
+    font-size: 1rem;
+    padding: .6rem .8rem;
+    user-select: none;
+    background: rgb(var(--thorn-base-color));
+    border: .1rem solid transparent;
+    cursor: pointer;
+    color: rgb(var(--thorn-ui-text-color));
+}
+
+input[is='thorn-button']:hover,
+button[is='thorn-button']:hover {
+    color: rgb(var(--thorn-base-color));
+    background: rgb(var(--thorn-ui-back-color));
+    border-color: rgb(var(--thorn-base-color));
+}
+
+/* CHECKBOX */
+input[is='thorn-checkbox'] {
+    --size: 1.2rem;
+    --border-size: calc(var(--size) * .14);
+    --mark-size: calc(var(--size) / 3);
+    appearance: none;
+    position: relative;
+    background: rgb(var(--thorn-ui-back-color));
+    width: var(--size);
+    height: var(--size);
+    border: var(--border-size) solid rgb(var(--thorn-base-color));
+    margin: 0;
+    vertical-align: bottom;
+    padding: 0;
+    margin-right: .2rem;
+}
+
+input[is='thorn-checkbox']::before {
+    position: absolute;
+    inset: calc(50% - var(--mark-size) / 2);
+    content: '';
+    width: var(--mark-size);
+    height: var(--mark-size);
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1rem 1rem rgb(var(--thorn-base-color));
+    background: rgb(var(--thorn-base-color));
+}
+
+input[is='thorn-checkbox']:checked::before {
+    transform: scale(1);
+}
+
+/* RADIO */
+input[is='thorn-radio'] {
+    --size: 1.2rem;
+    --border-size: calc(var(--size) * .14);
+    --mark-size: calc(var(--size) / 3);
+    appearance: none;
+    position: relative;
+    background: rgb(var(--thorn-ui-back-color));
+    margin: 0;
+    width: var(--size);
+    height: var(--size);
+    border: var(--border-size) solid rgb(var(--thorn-base-color));
+    border-radius: 50%;
+    vertical-align: bottom;
+    margin-right: .4rem;
+}
+
+input[is='thorn-radio']::before {
+    position: absolute;
+    inset: calc(50% - var(--mark-size) / 2);
+    content: '';
+    width: var(--mark-size);
+    height: var(--mark-size);
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1rem 1rem rgb(var(--thorn-base-color));
+    background: rgb(var(--thorn-base-color));
+}
+
+input[is='thorn-radio']:checked::before {
+    transform: scale(1);
+}
+
+/* RANGE */
+input[is='thorn-range'] {
+    --thumb-h: 1.6rem;
+    --thumb-w: .6rem;
+    --track-h: .4rem;
+    --thumb-outline: .05rem;
+    appearance: none;
+    height: var(--thumb-h);
+    background: transparent;
+    cursor: pointer;
+}
+
+/* webkit */
+input[is='thorn-range']::-webkit-slider-runnable-track {
+    background: rgb(var(--thorn-base-color));
+    height: var(--track-h);
+}
+
+input[is='thorn-range']::-webkit-slider-thumb {
+    appearance: none;
+    margin-top: calc(var(--track-h) / 2 - var(--thumb-h) / 2);
+
+    height: var(--thumb-h);
+    width: var(--thumb-w);
+    background: rgb(var(--thorn-ui-back-color));
+    outline: var(--thumb-outline) solid rgb(var(--thorn-base-color));
+}
+
+/* firefox */
+input[is='thorn-range']::-moz-range-track {
+    background: rgb(var(--thorn-base-color));
+    height: var(--track-h);
+}
+
+input[is='thorn-range']::-moz-range-thumb {
+    border: none;
+    border-radius: 0;
+
+    height: var(--thumb-h);
+    width: var(--thumb-w);
+    background: rgb(var(--thorn-ui-back-color));
+    outline: var(--thumb-outline) solid rgb(var(--thorn-base-color));
+}
+
+input[is='thorn-range']:focus::-moz-range-thumb {
+    border: var(--thumb-outline) solid rgb(var(--thorn-base-color));
+    outline: none;
+}
+
+/* INPUT TEXT */
+input[is=thorn-text] {
+    font-size: 1rem;
+    color: rgb(var(--thorn-text-color));
+    background: rgb(var(--thorn-ui-back-color));
+    border: .1rem solid rgb(var(--thorn-base-color));
+    padding: .2rem;
+}
+
+/* FIELDSET */
+fieldset[is='thorn-fieldset'] {
+    border: 1px solid rgb(var(--thorn-base-color));
+    background: rgb(var(--thorn-ui-back-color));
+    color: rgb(var(--thorn-text-color));
+}
+
+fieldset:disabled {
+    pointer-events: none;
+}
+
+fieldset[is='thorn-fieldset'] legend {
+    --padding: .4rem 1rem;
+    --font-size: 1rem;
+    --loading-color: var(--thorn-base-color);
+    position: relative;
+    padding: var(--padding);
+    background: rgb(var(--thorn-base-color));
+    color: rgb(var(--thorn-ui-text-color));
+    user-select: none;
+    font-size: var(--font-size);
+}
+
+@keyframes thorn-fieldset-loading {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+fieldset[is='thorn-fieldset'] legend::after {
+    --size: calc(var(--font-size) / 2);
+    content: '';
+    position: absolute;
+    left: calc(100% + var(--size));
+    width: var(--size);
+    height: var(--size);
+    border: var(--size) solid transparent;
+    border-top: var(--size) solid rgb(var(--loading-color));
+    border-bottom: var(--size) solid rgb(var(--loading-color));
+    border-radius: 100%;
+    animation: thorn-fieldset-loading 1s linear infinite;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+fieldset[is='thorn-fieldset'][data-loading='true'] legend::after {
+    opacity: 1;
+}
+
+/* TABLE */
+table[is='thorn-table'] {
+    border-collapse: collapse;
+    background: rgb(var(--thorn-ui-back-color));
+    font-family: unset;
+}
+
+table[is='thorn-table'] th {
+    color: rgb(var(--thorn-ui-text-color));
+    background: rgb(var(--thorn-base-color));
+}
+
+table[is='thorn-table'] td {
+    color: rgb(var(--thorn-text-color));
+}
+
+table[is='thorn-table'] td,
+table[is='thorn-table'] th {
+    padding: .6rem .8rem;
+}
+
+table[is='thorn-table'].hover tbody tr:hover {
+    outline: .1rem solid rgb(var(--thorn-base-color));
+}
+
+table[is='thorn-table'].stripe tr:nth-child(even) {
+    background: rgba(var(--thorn-base-color), .1);
+}
+
+/* DIALOG */
+#thorn-dialog {
+    --height: 40%;
+    --width: 30%;
+    --shadow-color: rgba(0, 0, 0, 0.5);
+    --header-h: 4rem;
+    --footer-h: calc(4rem * 1.25);
+    --content-padding: 2rem;
+    --transition-time: 250ms;
+
+    display: block;
+    position: fixed;
+    inset: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 9999;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility var(--transition-time), opacity var(--transition-time);
+    background: var(--shadow-color);
+    color: rgb(var(--thorn-text-color));
+    padding: 0;
+    border: none;
+}
+
+#thorn-dialog[open] {
+    visibility: visible;
+    opacity: 1;
+}
+
+#thorn-dialog>div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: var(--height);
+    width: var(--width);
+    background: rgb(var(--thorn-ui-back-color));
+}
+
+#thorn-dialog header,
+#thorn-dialog footer {
+    position: relative;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#thorn-dialog header {
+    height: var(--header-h);
+    line-height: var(--header-h);
+    background: rgba(var(--thorn-base-color), .1);
+    display: none;
+    padding-right: var(--header-h);
+}
+
+#thorn-dialog.mode-1 header {
+    display: block;
+}
+
+#thorn-dialog header button {
+    all: unset;
+    height: var(--header-h);
+    width: var(--header-h);
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+}
+
+#thorn-dialog header button:before,
+#thorn-dialog header button:after {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    height: 50%;
+    width: 5%;
+    content: '';
+    background-color: rgb(var(--thorn-base-color));
+    transform: rotate(45deg);
+}
+
+#thorn-dialog header button:after {
+    transform: rotate(-45deg);
+}
+
+#thorn-dialog header+div {
+    overflow-y: auto;
+    padding: var(--content-padding);
+}
+
+#thorn-dialog.mode-0 header+div {
+    height: calc(100% - var(--content-padding) * 4);
+    margin-top: calc(var(--content-padding));
+}
+
+#thorn-dialog.mode-0.mode-3 header+div {
+    height: calc(100% - var(--footer-h) - var(--content-padding) * 2);
+    margin-top: 0;
+}
+
+#thorn-dialog.mode-1 header+div {
+    height: calc(100% - var(--header-h) - var(--content-padding) * 2);
+}
+
+#thorn-dialog.mode-1.mode-2 header+div,
+#thorn-dialog.mode-1.mode-3 header+div {
+    height: calc(100% - var(--header-h) - var(--footer-h) - var(--content-padding) * 2);
+}
+
+#thorn-dialog.mode-2 header+div,
+#thorn-dialog.mode-3 header+div {
+    height: calc(100% - var(--footer-h) - var(--content-padding) * 2);
+}
+
+#thorn-dialog footer {
+    height: var(--footer-h);
+    line-height: var(--footer-h);
+    box-sizing: border-box;
+    border-top: .1rem solid rgba(var(--thorn-base-color), .2);
+    visibility: hidden;
+}
+
+#thorn-dialog.mode-2 footer {
+    visibility: visible;
+}
+
+#thorn-dialog.mode-3 footer {
+    visibility: visible;
+    text-align: center;
+}
+
+#thorn-dialog.mode-3 footer button {
+    margin: 0 .5rem;
+}
+
+#thorn-dialog.mode-3 footer button.raised {
+    color: rgb(var(--thorn-base-color));
+    background: rgb(var(--thorn-ui-back-color));
+    border-color: rgb(var(--thorn-base-color));
+}
