@@ -5,73 +5,70 @@ Pure CSS UI kit for quick prototyping.
 <a href="https://evgenii-d.github.io/thorn-kit/" target="_blank">Examples</a>
 
 ## Usage
-Just add [thorn-kit.css](https://github.com/evgenii-d/thorn-kit/blob/main/css/thorn-kit.css) to your page and you are good to go
-<br>
-`<link rel=stylesheet href=thorn-kit.css>`
-<br>
-
-You can customize colors through CSS custom properties:
-- --thorn-base-color
-- --thorn-text-color
-- --thorn-ui-back-color
-- --thorn-ui-text-color
-- --thorn-scrollbar-track
-- --thorn-scrollbar-thumb
+- Add [thorn-kit.css](https://github.com/evgenii-d/thorn-kit/blob/main/css/thorn-kit.css) to your page `<link rel=stylesheet href=thorn-kit.css>`
+- Add `class=thorn-kit` to supported HTML Elements
+- Сustomize colors through CSS custom properties:
+   - --thorn-base-color
+   - --thorn-text-color
+   - --thorn-ui-back-color
+   - --thorn-ui-text-color
+   - --thorn-scrollbar-track
+   - --thorn-scrollbar-thumb
 
 
 ## Supported HTML Elements
 ### \<input\>
-|Type|Syntax|Example|
-|---|---|---|
-|type=checkbox|is=thorn-checkbox|`<label><input is=thorn-checkbox type=checkbox> checkbox</label>`|
-|type=radio|is=thorn-radio|`<label><input is=thorn-radio type=radio>radio button</label>`|
-|type=range|is=thorn-range|`<input is=thorn-range type=range>`|
-|type=text|is=thorn-text|`<input is=thorn-text type=text value="User input">`|
-|type=button|is=thorn-button|`<input is=thorn-button type=button value="Button">`|
+|Type|Example|
+|---|---|
+|type=checkbox|`<label><input class=thorn-kit type=checkbox> checkbox</label>`|
+|type=radio|`<label><input class=thorn-kit type=radio>radio button</label>`|
+|type=range|`<input class=thorn-kit type=range>`|
+|type=text|`<input class=thorn-kit type=text value="User input">`|
+|type=button|`<input class=thorn-kit type=button value="Button">`|
 <br>
 
 ### \<button\>
-|Syntax|Example|
-|---|---|
-|is=thorn-button|`<button is=thorn-button>Button</button>`|
+|Example|
+|---|
+|`<button class=thorn-kit >Button</button>`|
 <br>
 
 ### \<fieldset\>
-|Syntax|Example|
-|---|---|
-|is=thorn-fieldset|`<fieldset is=thorn-fieldset><legend>Legend</legend></fieldset>`|
+|Example|
+|---|
+|`<fieldset class=thorn-kit ><legend>Legend</legend></fieldset>`|
 
 To show loading animation add `data-loading=true` to \<fieldset\>
 ```
-<fieldset is=thorn-fieldset data-loading=true>
+<fieldset class=thorn-kit data-loading=true>
      <legend>Field Set</legend>
 </fieldset>
 ```
 <br>
 
 ### \<table\>
-|Syntax|Example|
-|---|---|
-|is=thorn-table|`<table is=thorn-table>...</table>`|
+|Example|
+|---|
+|`<table class=thorn-kit >...</table>`|
 
 To create a striped table add `class=stripe` to \<table\>
 ```
-<table is=thorn-table class=stripe>...</table>
+<table class="thorn-kit stripe" >...</table>
 ```
 To hover table rows add `class=hover` to \<table\>
 ```
-<table is=thorn-table class=hover>...</table>
+<table class="thorn-kit hover" >...</table>
 ```
 <br>
 
 Or use both
 ```
-<table is=thorn-table class="stripe hover">...</table>
+<table class="thorn-kit stripe hover" >...</table>
 ```
 <br>
 
 ### Scrollbar
-To show custom scrollbar add `class="thorn-scrollbar"`
+To show custom scrollbar add `class=thorn-scrollbar`
 ```
-<div class="thorn-scrollbar">...<\div>
+<div class=thorn-scrollbar >...<\div>
 ```

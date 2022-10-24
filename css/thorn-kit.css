@@ -1,6 +1,5 @@
 :root {
     /* Colors in RGB format only */
-    /* Basic UI kit for prototyping */
     --thorn-base-color: 0, 0, 0;
     --thorn-text-color: 0, 0, 0;
     --thorn-ui-back-color: 255, 255, 255;
@@ -9,15 +8,15 @@
     --thorn-scrollbar-thumb: 205, 205, 205;
 }
 
-[is*='thorn'] {
+.thorn-kit {
     color: rgb(var(--thorn-text-color));
 }
 
-[is*='thorn']:focus {
+.thorn-kit:focus {
     outline: none;
 }
 
-[is*='thorn']:disabled {
+.thorn-kit:disabled {
     opacity: .6;
     pointer-events: none;
 }
@@ -44,8 +43,8 @@
 }
 
 /* BUTTON */
-input[is='thorn-button'],
-button[is='thorn-button'] {
+input[type=button].thorn-kit,
+button.thorn-kit {
     position: relative;
     font-size: 1rem;
     padding: .6rem .8rem;
@@ -56,15 +55,15 @@ button[is='thorn-button'] {
     color: rgb(var(--thorn-ui-text-color));
 }
 
-input[is='thorn-button']:hover,
-button[is='thorn-button']:hover {
+input[type=button].thorn-kit:hover,
+button.thorn-kit:hover {
     color: rgb(var(--thorn-base-color));
     background: rgb(var(--thorn-ui-back-color));
     border-color: rgb(var(--thorn-base-color));
 }
 
 /* CHECKBOX */
-input[is='thorn-checkbox'] {
+input[type=checkbox].thorn-kit {
     --size: 1.2rem;
     --border-size: calc(var(--size) * .14);
     --mark-size: calc(var(--size) / 3);
@@ -80,7 +79,7 @@ input[is='thorn-checkbox'] {
     margin-right: .2rem;
 }
 
-input[is='thorn-checkbox']::before {
+input[type=checkbox].thorn-kit::before {
     position: absolute;
     inset: calc(50% - var(--mark-size) / 2);
     content: '';
@@ -92,12 +91,12 @@ input[is='thorn-checkbox']::before {
     background: rgb(var(--thorn-base-color));
 }
 
-input[is='thorn-checkbox']:checked::before {
+input[type=checkbox].thorn-kit:checked::before {
     transform: scale(1);
 }
 
 /* RADIO */
-input[is='thorn-radio'] {
+input[type=radio].thorn-kit {
     --size: 1.2rem;
     --border-size: calc(var(--size) * .14);
     --mark-size: calc(var(--size) / 3);
@@ -113,7 +112,7 @@ input[is='thorn-radio'] {
     margin-right: .4rem;
 }
 
-input[is='thorn-radio']::before {
+input[type=radio].thorn-kit::before {
     position: absolute;
     inset: calc(50% - var(--mark-size) / 2);
     content: '';
@@ -126,12 +125,12 @@ input[is='thorn-radio']::before {
     background: rgb(var(--thorn-base-color));
 }
 
-input[is='thorn-radio']:checked::before {
+input[type=radio].thorn-kit:checked::before {
     transform: scale(1);
 }
 
 /* RANGE */
-input[is='thorn-range'] {
+input[type=range].thorn-kit {
     --thumb-h: 1.6rem;
     --thumb-w: .6rem;
     --track-h: .4rem;
@@ -143,12 +142,12 @@ input[is='thorn-range'] {
 }
 
 /* webkit */
-input[is='thorn-range']::-webkit-slider-runnable-track {
+input[type=range].thorn-kit::-webkit-slider-runnable-track {
     background: rgb(var(--thorn-base-color));
     height: var(--track-h);
 }
 
-input[is='thorn-range']::-webkit-slider-thumb {
+input[type=range].thorn-kit::-webkit-slider-thumb {
     appearance: none;
     margin-top: calc(var(--track-h) / 2 - var(--thumb-h) / 2);
 
@@ -159,12 +158,12 @@ input[is='thorn-range']::-webkit-slider-thumb {
 }
 
 /* firefox */
-input[is='thorn-range']::-moz-range-track {
+input[type=range].thorn-kit::-moz-range-track {
     background: rgb(var(--thorn-base-color));
     height: var(--track-h);
 }
 
-input[is='thorn-range']::-moz-range-thumb {
+input[type=range].thorn-kit::-moz-range-thumb {
     border: none;
     border-radius: 0;
 
@@ -174,13 +173,13 @@ input[is='thorn-range']::-moz-range-thumb {
     outline: var(--thumb-outline) solid rgb(var(--thorn-base-color));
 }
 
-input[is='thorn-range']:focus::-moz-range-thumb {
+input[type=range].thorn-kit:focus::-moz-range-thumb {
     border: var(--thumb-outline) solid rgb(var(--thorn-base-color));
     outline: none;
 }
 
 /* INPUT TEXT */
-input[is=thorn-text] {
+input[type=text].thorn-kit {
     font-size: 1rem;
     color: rgb(var(--thorn-text-color));
     background: rgb(var(--thorn-ui-back-color));
@@ -189,7 +188,7 @@ input[is=thorn-text] {
 }
 
 /* FIELDSET */
-fieldset[is='thorn-fieldset'] {
+fieldset.thorn-kit {
     border: 1px solid rgb(var(--thorn-base-color));
     background: rgb(var(--thorn-ui-back-color));
     color: rgb(var(--thorn-text-color));
@@ -199,7 +198,7 @@ fieldset:disabled {
     pointer-events: none;
 }
 
-fieldset[is='thorn-fieldset'] legend {
+fieldset.thorn-kit legend {
     --padding: .4rem 1rem;
     --font-size: 1rem;
     --loading-color: var(--thorn-base-color);
@@ -221,7 +220,7 @@ fieldset[is='thorn-fieldset'] legend {
     }
 }
 
-fieldset[is='thorn-fieldset'] legend::after {
+fieldset.thorn-kit legend::after {
     --size: calc(var(--font-size) / 2);
     content: '';
     position: absolute;
@@ -237,179 +236,35 @@ fieldset[is='thorn-fieldset'] legend::after {
     transition: opacity 1s;
 }
 
-fieldset[is='thorn-fieldset'][data-loading='true'] legend::after {
+fieldset.thorn-kit[data-loading=true] legend::after {
     opacity: 1;
 }
 
 /* TABLE */
-table[is='thorn-table'] {
+table.thorn-kit {
     border-collapse: collapse;
     background: rgb(var(--thorn-ui-back-color));
     font-family: unset;
 }
 
-table[is='thorn-table'] th {
+table.thorn-kit th {
     color: rgb(var(--thorn-ui-text-color));
     background: rgb(var(--thorn-base-color));
 }
 
-table[is='thorn-table'] td {
+table.thorn-kit td {
     color: rgb(var(--thorn-text-color));
 }
 
-table[is='thorn-table'] td,
-table[is='thorn-table'] th {
+table.thorn-kit td,
+table.thorn-kit th {
     padding: .6rem .8rem;
 }
 
-table[is='thorn-table'].hover tbody tr:hover {
+table.thorn-kit.hover tbody tr:hover {
     outline: .1rem solid rgb(var(--thorn-base-color));
 }
 
-table[is='thorn-table'].stripe tr:nth-child(even) {
+table.thorn-kit.stripe tr:nth-child(even) {
     background: rgba(var(--thorn-base-color), .1);
-}
-
-/* DIALOG */
-#thorn-dialog {
-    --height: 40%;
-    --width: 30%;
-    --shadow-color: rgba(0, 0, 0, 0.5);
-    --header-h: 4rem;
-    --footer-h: calc(4rem * 1.25);
-    --content-padding: 2rem;
-    --transition-time: 250ms;
-
-    display: block;
-    position: fixed;
-    inset: 0;
-    height: 100vh;
-    width: 100vw;
-    z-index: 9999;
-    visibility: hidden;
-    opacity: 0;
-    transition: visibility var(--transition-time), opacity var(--transition-time);
-    background: var(--shadow-color);
-    color: rgb(var(--thorn-text-color));
-    padding: 0;
-    border: none;
-}
-
-#thorn-dialog[open] {
-    visibility: visible;
-    opacity: 1;
-}
-
-#thorn-dialog>div {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    height: var(--height);
-    width: var(--width);
-    background: rgb(var(--thorn-ui-back-color));
-}
-
-#thorn-dialog header,
-#thorn-dialog footer {
-    position: relative;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-#thorn-dialog header {
-    height: var(--header-h);
-    line-height: var(--header-h);
-    background: rgba(var(--thorn-base-color), .1);
-    display: none;
-    padding-right: var(--header-h);
-}
-
-#thorn-dialog.mode-1 header {
-    display: block;
-}
-
-#thorn-dialog header button {
-    all: unset;
-    height: var(--header-h);
-    width: var(--header-h);
-    position: absolute;
-    top: 0;
-    right: 0;
-    cursor: pointer;
-}
-
-#thorn-dialog header button:before,
-#thorn-dialog header button:after {
-    position: absolute;
-    top: 25%;
-    left: 50%;
-    height: 50%;
-    width: 5%;
-    content: '';
-    background-color: rgb(var(--thorn-base-color));
-    transform: rotate(45deg);
-}
-
-#thorn-dialog header button:after {
-    transform: rotate(-45deg);
-}
-
-#thorn-dialog header+div {
-    overflow-y: auto;
-    padding: var(--content-padding);
-}
-
-#thorn-dialog.mode-0 header+div {
-    height: calc(100% - var(--content-padding) * 4);
-    margin-top: calc(var(--content-padding));
-}
-
-#thorn-dialog.mode-0.mode-3 header+div {
-    height: calc(100% - var(--footer-h) - var(--content-padding) * 2);
-    margin-top: 0;
-}
-
-#thorn-dialog.mode-1 header+div {
-    height: calc(100% - var(--header-h) - var(--content-padding) * 2);
-}
-
-#thorn-dialog.mode-1.mode-2 header+div,
-#thorn-dialog.mode-1.mode-3 header+div {
-    height: calc(100% - var(--header-h) - var(--footer-h) - var(--content-padding) * 2);
-}
-
-#thorn-dialog.mode-2 header+div,
-#thorn-dialog.mode-3 header+div {
-    height: calc(100% - var(--footer-h) - var(--content-padding) * 2);
-}
-
-#thorn-dialog footer {
-    height: var(--footer-h);
-    line-height: var(--footer-h);
-    box-sizing: border-box;
-    border-top: .1rem solid rgba(var(--thorn-base-color), .2);
-    visibility: hidden;
-}
-
-#thorn-dialog.mode-2 footer {
-    visibility: visible;
-}
-
-#thorn-dialog.mode-3 footer {
-    visibility: visible;
-    text-align: center;
-}
-
-#thorn-dialog.mode-3 footer button {
-    margin: 0 .5rem;
-}
-
-#thorn-dialog.mode-3 footer button.raised {
-    color: rgb(var(--thorn-base-color));
-    background: rgb(var(--thorn-ui-back-color));
-    border-color: rgb(var(--thorn-base-color));
 }
