@@ -19,6 +19,7 @@
 .thorn-kit:disabled {
     opacity: .6;
     pointer-events: none;
+    user-select: none;
 }
 
 /* SCROLLBAR */
@@ -44,10 +45,16 @@
 
 /* BUTTON */
 input[type=button].thorn-kit,
+button.thorn-kit,
+input[type=file].thorn-kit::file-selector-button {
+    --font-size: 1rem;
+}
+
+input[type=button].thorn-kit,
 button.thorn-kit {
     position: relative;
-    font-size: 1rem;
-    padding: .6rem .8rem;
+    font-size: var(--font-size);
+    padding: .4rem .6rem;
     user-select: none;
     background: rgb(var(--thorn-base-color));
     border: .1rem solid transparent;
@@ -56,7 +63,8 @@ button.thorn-kit {
 }
 
 input[type=button].thorn-kit:hover,
-button.thorn-kit:hover {
+button.thorn-kit:hover,
+input[type=file].thorn-kit::file-selector-button:hover {
     color: rgb(var(--thorn-base-color));
     background: rgb(var(--thorn-ui-back-color));
     border-color: rgb(var(--thorn-base-color));
@@ -184,7 +192,32 @@ input[type=text].thorn-kit {
     color: rgb(var(--thorn-text-color));
     background: rgb(var(--thorn-ui-back-color));
     border: .1rem solid rgb(var(--thorn-base-color));
-    padding: .2rem;
+    padding: .4rem .6rem;
+}
+
+/* INPUT FILE */
+input[type=file].thorn-kit {
+    width: 16rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    border: .1rem solid rgb(var(--thorn-base-color));
+    box-sizing: border-box;
+    padding-right: 1rem;
+    font-size: 1rem;
+}
+
+input[type=file].thorn-kit::file-selector-button {
+    all: unset;
+    position: relative;
+    font-size: var(--font-size);
+    padding: .4rem .6rem;
+    user-select: none;
+    color: rgb(var(--thorn-ui-text-color));
+    background: rgb(var(--thorn-base-color));
+    outline: .1rem solid rgb(var(--thorn-base-color));
+    cursor: pointer;
+    margin-right: 1rem;
 }
 
 /* FIELDSET */
@@ -194,8 +227,13 @@ fieldset.thorn-kit {
     color: rgb(var(--thorn-text-color));
 }
 
-fieldset:disabled {
+fieldset.thorn-kit:disabled {
+    opacity: 1;
     pointer-events: none;
+}
+
+fieldset.thorn-kit:disabled>*:not(legend) {
+    opacity: .6;
 }
 
 fieldset.thorn-kit legend {
